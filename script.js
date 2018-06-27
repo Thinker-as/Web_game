@@ -1,5 +1,36 @@
+var firstCell = null;
+var SecndCell = null;
+
 function cellClick(obj){
-	console.log(obj);
+	if(firstCell != null && SecndCell != null){
+		return;
+	}
+	obj.children[0].classList.remove("hidden");
+	if (firstCell == null) {
+		firstCell = obj;
+	}else{
+		if(obj == firstCell){
+			return;
+		}
+		SecndCell = obj;
+		var a = obj.children[0].innerHTML;
+		var b = firstCell.children[0].innerHTML;
+		console.log(a,b);
+		if(a != b){
+			setTimeout(function(){
+				firstCell.children[0].classList.add("hidden");
+				obj.children[0].classList.add("hidden");
+				firstCell = null;
+				SecndCell = null;
+			}, 1000);
+		} else {
+			firstCell.classList.add("hidden");
+			SecndCell.classList.add("hidden");
+			firstCell = null;
+			SecndCell = null;
+		}
+	}
+	console.log(obj.children[0].innerHTML);
 }
 
 
@@ -14,38 +45,18 @@ for(i = 0; i < 18; i++){
 	}while(a == b 
 			|| listOfItems[a].innerHTML != "" 
 			|| listOfItems[b].innerHTML != "");
-	var value = 10 + Math.round(Math.random() * 89);
+	var value = 10 + Math.round(Math.random() * 3);
 	listOfItems[a].innerHTML = value;
 	listOfItems[b].innerHTML = value;
+
+	listOfItems[a].classList.add("hidden");
+	listOfItems[b].classList.add("hidden");
 }
 
-/*function Stack() {
-    this._size = 0;
-    this._storage = {};
+var listOfTd = document.getElementsByClassName("td");
+var i;
+for (var i = 0; i <  listOfTd.length; i++) {
+	listOfTd[i].onclick = function(){
+		cellClick(this);
+	}
 }
-Stack.prototype.push = function(data) {
-    // increases the size of our storage
-    var size = this._size++;
- 
-    // assigns size as a key of storage
-    // assigns data as the value of this key
-    this._storage[size] = data;
-};
-
-Stack.prototype.pop = function() {
-    var size = this._size,
-        deletedData;
- 
-    deletedData = this._storage[size];
- 
-    delete this._storage[size];
-    this.size--;
- 
-    return deletedData;
-};
-
-
-for (var i = 0; i < listOfItems[i]; i++) {
-
-	listOfItems[i]
-};*/
