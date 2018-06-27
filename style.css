@@ -1,0 +1,34 @@
+table{
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+	border-collapse: separate;
+	border-spacing: 15px;
+
+}
+
+body {
+    background-image: url(https://cameralabs.org/media/k2/items/cache/c83bb77473e648ece9e5aba9277cee3e_L.jpg); /* Путь к фоновому изображению */
+    background-size: 100%;
+    background-color: #c7b39b; /* Цвет фона */
+}
+
+h1{
+	text-align: center;
+}
+
+td {
+	text-align: center;
+	background-color: red;
+	width: 88px;
+}
+
+.hidden{
+	visibility: hidden;
+}
+.item {
+	font-style: bold;
+	font-size: 70px;
+	background-color: blue;
+	color: white;
+}
